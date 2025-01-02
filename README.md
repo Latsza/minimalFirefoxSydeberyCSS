@@ -5,7 +5,8 @@
 ## Features
 - Oledtheme
 - Sidebar
-- HdeToolbar
+- HdeToolbar/Urlbar
+- Keyboard focused
 - idk...
 ## Installation
 to install copy the main branch into the root directory of Firefox
