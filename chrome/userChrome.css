@@ -1,0 +1,294 @@
++#appcontent
+  > #tabbrowser-tabbox
+  > #tabbrowser-tabpanels
+  > .deck-selected
+  > .browserContainer
+  > .browserStack
+  > browser {
+  border-radius: 0px !important;
+  margin: 0px !important;
+}
+/* Forces all about: to be black*/
+@-moz-document url-prefix("about:") {
+  body {
+    background-color: #000000 !important;
+  }
+}
+
+
+browser {
+  background: linear-gradient(#000000, #000000);
+  border-radius: 0px;
+}
+
+.browserStack {
+  padding: 10px;
+  background: linear-gradient(#000000, #000000);
+}
+
+.browserContainer {
+  background-color: var(
+    --lwt-accent-color-inactive,
+    var(--lwt-accent-color)
+  ) !important;
+  background-image: var(--lwt-header-image), var(--lwt-additional-images) !important;
+  background-repeat: no-repeat, var(--lwt-background-tiling) !important;
+  background-position: right top, var(--lwt-background-alignment) !important;
+}
+
+#titlebar {
+  display: none !important;
+}
+
+.titlebar-buttonbox-container {
+  display: none !important;
+}
+
+/* Hide control buttons (them are sometimes useful so im not doing it)
+#forward-button,
+#back-button,
+#reload-button {
+  display: none !important;
+}*/
+
+/* Hide the annoying unified extensions button*/
+#unified-extensions-button, #unified-extensions-button > .toolbarbutton-icon{
+width: 0px !important;
+padding: 0px !important;
+}
+
+#sidebar-button {
+  margin-left: 0px !important;
+}
+
+#navigator-toolbox:not(:hover) {
+  --is-bar-visible: hidden;
+  opacity: 0 !important;
+  transition: height 200ms ease-in-out, opacity 175ms ease-in-out;
+}
+
+#PersonalToolbar {
+  display: none;
+}
+
+/* Important, modifies the toolbox an url bar position and the time of idlef*/
+#navigator-toolbox {
+  position: fixed;
+  z-index: 1;
+  height: 15px;
+  overflow: var(--is-bar-visible);
+  top: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transition: 1s !important;
+  background-color: #000000 !important; 
+  border-color: #000000 !important;
+}
+
+#navigator-toolbox:hover {
+  height: 40px;
+  opacity: 1 !important;
+  transition: opacity 175ms ease-in-out;
+}
+
+#navigator-toolbox:focus-within {
+  height: 40px;
+  opacity: 1 !important;
+  transition: opacity 175ms ease-in-out;
+  --is-bar-visible: visible;
+}
+
+#nav-bar {
+  background: #transparent !important;
+  border-radius: 10px;
+}
+
+#urlbar-background {
+  background: #000000 !important;
+  visibility: collapse;
+}
+
+toolbarbutton[open="true"] {
+  --is-bar-visible: visible !important;
+}
+
+
+/* SIDEBERY */
+
+/* hides the sidebar header */
+#sidebar-header {
+    display: none !important;
+}
+
+.tab[selected="true"] {
+    visibility: collapse;
+    height: 0px;
+}
+
+.tabbrowser-tab {
+    visibility: collapse;
+    height: 0px;
+}
+
+
+.tabbrowser-tab[visuallyselected="true"] {
+    visibility: collapse;
+    height: 0px;
+}
+
+
+/* AUTO HIDE SIDE BAR */
+
+#sidebar-box {
+    --uc-sidebar-width: 44px;
+    --uc-sidebar-hover-width: 260px;
+    --uc-autohide-sidebar-delay: 1ms; /* Waiting time before hiding sidebar */
+    position: relative;
+    min-width: var(--uc-sidebar-width) !important;
+    width: var(--uc-sidebar-width) !important;
+    max-width: var(--uc-sidebar-width) !important;
+    z-index: 100;
+}
+
+#sidebar-box[positionend] {
+    direction: rtl;
+}
+#sidebar-box[positionend] > * {
+    direction: ltr;
+}
+
+#sidebar-box[positionend]:-moz-locale-dir(rtl) {
+    direction: ltr;
+}
+#sidebar-box[positionend]:-moz-locale-dir(rtl) > * {
+    direction: rtl;
+}
+
+/* HIDE SIDE BAR IN FULL SCREEN 
+#main-window[inFullscreen="true"] #sidebar-box {
+    --uc-sidebar-width: 0px;
+}*/
+
+
+#sidebar-splitter {
+    display: none;
+}
+
+#sidebar-header {
+    overflow: hidden;
+    color: var(--bg) !important;
+}
+
+#sidebar {
+    transition: min-width 115ms linear var(--uc-autohide-sidebar-delay) !important;
+    min-width: var(--uc-sidebar-width) !important;
+    will-change: min-width;
+}
+
+#sidebar-box:hover > #sidebar {
+    min-width: var(--uc-sidebar-hover-width) !important;
+    transition-delay: 0ms !important;
+}
+
+.sidebar-panel {
+    background-color: transparent !important;
+    color: var(--newtab-text-primary-color) !important;
+}
+
+.sidebar-panel #search-box {
+    -moz-appearance: none !important;
+    background-color: rgba(249, 249, 250, 0.1) !important;
+    color: inherit !important;
+}
+
+/* Add sidebar divider and give it background */
+
+#sidebar,
+#sidebar-header {
+    background-color: inherit !important;
+    /* 	border-inline: 1px solid rgb(80, 80, 80); */
+    border-inline-width: 0px 1px;
+}
+
+#sidebar-box:not([positionend]) > :-moz-locale-dir(rtl),
+#sidebar-box[positionend] > * {
+    border-inline-width: 1px 0px;
+}
+
+/* Move statuspanel to the other side when sidebar is hovered so it doesn't get covered by sidebar */
+
+#sidebar-box:not([positionend]):hover ~ #appcontent #statuspanel {
+    inset-inline: auto 0px !important;
+}
+#sidebar-box:not([positionend]):hover ~ #appcontent #statuspanel-label {
+    margin-inline: 0px !important;
+    border-left-style: solid !important;
+}
+/* Hiding the header on new tab page */
+#main-window[BookmarksToolbarOverlapsBrowser] .newTabBrowserPanel,
+#main-window[BookmarksToolbarOverlapsBrowser] #sidebar-box {
+  padding-top: 0 !important;
+}
+
+@media (prefers-color-scheme: light) {
+  .browserStack {
+    background: linear-gradient(#dadce5, #dadce5);
+  }
+  #nav-bar,
+  #urlbar-background {
+    background: #dadce5 !important;
+  }
+} 
+
+/* Reduce font size and padding of context menu items */
+#contentAreaContextMenu {
+  font-size: 14px !important;
+  padding: 2px !important;
+}
+
+/* Reduce padding of context menu items */
+#contentAreaContextMenu menuitem {
+  padding: 3px !important;
+}
+
+/* Make the context menu background black */
+#contentAreaContextMenu {
+  background-color: #000 !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  padding: 2px !important;
+  border: 1px solid #333 !important;
+  box-shadow: none !important;
+}
+
+/* Make context menu items black */
+#contentAreaContextMenu menuitem {
+  background-color: #000 !important;
+  color: #fff !important;
+  padding: 2px !important;
+}
+
+/* Make context menu separators black */
+#contentAreaContextMenu menuseparator {
+  background-color: #333 !important;
+  border-color: #333 !important;
+}
+
+/* Make context menu sub-menus black */
+#contentAreaContextMenu menu {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Make context menu hover effects black */
+#contentAreaContextMenu menuitem:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+/* Make the context menu background black (this is the key one) */
+#contentAreaContextMenu > menupopup {
+  background-color: #000 !important;
+}
+
