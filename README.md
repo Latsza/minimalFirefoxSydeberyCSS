@@ -4,7 +4,7 @@
 [OledTheme](https://addons.mozilla.org/en-US/firefox/addon/black21/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 ## Features
 - Oledtheme
-- Sidebar
+- Auto hide sidebar
 - HdeToolbar/Urlbar
 - Keyboard focused
 - Custom wallpaper
