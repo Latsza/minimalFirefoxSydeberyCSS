@@ -13,4 +13,6 @@
 to install copy the main branch into the root directory of Firefox
 ## Wallpaper
 use a .png image and paste into /chrome/wallpapers/wallpaper.png
-![Just a screenshot :) ]([./images/screenshot.png](https://github.com/Latsza/minimalFirefoxSydeberyCSS/blob/main/chrome/Sceenshoot.png))
+![Just a screenshot :)](https://github.com/Latsza/minimalFirefoxSydeberyCSS/blob/main/chrome/Sceenshoot.png "Just a screenshot :)")
+
+
